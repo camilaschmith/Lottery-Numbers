@@ -22,11 +22,11 @@ def fetch_mega_sena_results():
 def get_high_probability_numbers(n):
     results = fetch_mega_sena_results()
     
-    # Flatten the list of results and count frequencies
+    # Reduz a quantidade de dados e seleciona as repetições 
     all_numbers = [int(num) for draw in results for num in draw]
     number_counts = Counter(all_numbers)
     
-    # Sort by most common numbers
+    # Organiza os numeros mais comuns
     most_common_numbers = [num for num, count in number_counts.most_common()]
     
     # Escolhe os 'n' numeros aleatorios dentro do top 15 numeros mais repetidos
@@ -34,8 +34,7 @@ def get_high_probability_numbers(n):
 
     print ("Top 10 numeros mais frequentes:", most_common_numbers[:100])
 
-# Example usage:
-n = 6  # Quantidade de numero que você quer
+n = 6  # Quantidade de numero que você quer (6 numeros = um jogo)
 try:
     suggested_numbers = get_high_probability_numbers(n)
     print("Numeros sugeridos para a Mega Sena:", suggested_numbers)
